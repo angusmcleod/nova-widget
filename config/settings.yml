@@ -1,0 +1,10 @@
+plugins:
+  widget_profile_guest_welcome_title:
+    client: true
+    default: "Welcome to my site"
+  widget_profile_guest_welcome_body:
+    client: true
+    default: "This is a decription about my site"
+  create_a_nova: 
+    client: true
+    default: "نوا بساز"

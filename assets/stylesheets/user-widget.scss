@@ -1,0 +1,33 @@
+.nova
+{
+	.widget-inner
+	{	
+		img
+		{
+			padding-left: 15%;
+		}
+		h3
+		{
+			padding-left: 8%;
+		}
+		.btn
+		{
+			margin-right: 32%;
+		}
+		.PayPingCheckout:hover 
+		{
+    		background: #b2b2b2;
+    		color: white;
+		}
+		.PayPingCheckout 
+		{
+			display: block;
+    		margin-top: 3%;
+    		margin-right: 35%;
+    		border: none;
+    		color: #222222;
+    		font-weight: normal;
+    		background: #e9e9e9;
+		}
+	}
+}
