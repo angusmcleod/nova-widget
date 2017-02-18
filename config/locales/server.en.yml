@@ -1,4 +1,10 @@
 fa_IR:
   site_settings:
-    widget_profile_guest_welcome_title: "Title of a welcome message for non-users that displays in place of profile details"
-    widget_profile_guest_welcome_body: "Body of a welcome message for non-users that displays in place of profile details"
+    nova-foodwaste: "status nova-001"
+    nova-experiences: "status of nova-002"
+    nova-pollution: "status of nova-003"
+    nova-foodwaste-date: "this nova's date i.e: Mar 12, 2017"
+    nova-experiences-date: "this nova's date i.e: Mar 12, 2017"
+    nova-pollution-date: "this nova's date i.e: Mar 12, 2017"
+    nova-reading-date: "this nova's date i.e: Mar 12, 2017"
+    nova-reading: "status of nova-004"

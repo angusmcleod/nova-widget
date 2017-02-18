@@ -1,10 +1,25 @@
 plugins:
-  widget_profile_guest_welcome_title:
+  nova-experiences:
     client: true
-    default: "Welcome to my site"
-  widget_profile_guest_welcome_body:
+    default: false
+  nova-experiences-date:
     client: true
-    default: "This is a decription about my site"
-  create_a_nova: 
+    default: "Mar 12, 2017"
+  nova-foodwaste:
     client: true
-    default: "نوا بساز"
+    default: false
+  nova-foodwaste-date:
+    client: true
+    default: "Mar 12, 2017"
+  nova-pollution:
+    client: true
+    default: false
+  nova-pollution-date:
+    client: true
+    default: "Mar 12, 2017"
+  nova-reading:
+    client: true
+    default: false
+  nova-reading-date:
+    client: true
+    default: "Mar 12, 2017"
