@@ -72,8 +72,7 @@ export default createWidget('nova', {
     var v1 = 0, size = 0;
     var unread = 0;
     var data = Discourse.Category.list();
-
-    if (path == "discovery.latest")
+    if (path == "discovery.latest" || path == "discovery.top")
     {
         contents.push(h("h2.novatitle", [h("a.what", {attributes:{href: "t/ابتکار-جمعی-یعنی-چه-و-چه-جوری-کار-میکنه؟/3601"}}, " نوآ"), " های اخیر"]));
          for (var i = 0 ; i < data.length ; i++) 
@@ -259,10 +258,10 @@ export default createWidget('nova', {
           h("section.col-xlg-4", [
             h("h2.mb10", ["فرآیند " , h("a.what", {attributes:{href: "t/ابتکار-جمعی-یعنی-چه-و-چه-جوری-کار-میکنه؟/3601"}}, "نوآ")]),
             h("ul.progress.vertical",[
-              h("li.step1", h("a", {attributes: {href: "research"}}, [h("h3","تحقیق") , h("h4.topicnum", level1 + " تاپیک")])),
-              h("li.step2", h("a", {attributes: {href: "idea"}}, [h("h3","ایده‌پردازی") , h("h4.topicnum", level2 + " تاپیک")])),
-              h("li.step3", h("a", {attributes: {href: "refinement"}}, [h("h3","تکمیل راه‌کار‌ها") , h("h4.topicnum", level3 + " تاپیک")])),
-              h("li.step4", h("a", {attributes: {href: "impact"}}, [h("h3","تاثیر") , h("h4.topicnum", level4 + " تاپیک")]))
+              h("li.step1", h("a", {attributes: {href: "/c/" + cate.slug + "/research"}}, [h("h3","تحقیق") , h("h4.topicnum", level1 + " تاپیک")])),
+              h("li.step2", h("a", {attributes: {href: "/c/" + cate.slug + "/idea"}}, [h("h3","ایده‌پردازی") , h("h4.topicnum", level2 + " تاپیک")])),
+              h("li.step3", h("a", {attributes: {href: "/c/" + cate.slug + "/refinement"}}, [h("h3","تکمیل راه‌کار‌ها") , h("h4.topicnum", level3 + " تاپیک")])),
+              h("li.step4", h("a", {attributes: {href: "/c/" + cate.slug + "/impact"}}, [h("h3","تاثیر") , h("h4.topicnum", level4 + " تاپیک")]))
               ])
             ])
           ]));
@@ -271,7 +270,7 @@ export default createWidget('nova', {
         contents.push(this.attach('category-notifications-button', {
   className: 'btn widget-button',
   category: category,
-  showFullTitle: true
+  showFullTitle: false
 }));
 
     }
