@@ -259,10 +259,10 @@ export default createWidget('nova', {
           h("section.col-xlg-4", [
             h("h2.mb10", ["فرآیند " , h("a.what", {attributes:{href: "t/ابتکار-جمعی-یعنی-چه-و-چه-جوری-کار-میکنه؟/3601"}}, "نوآ")]),
             h("ul.progress.vertical",[
-              h("li.step1", h("a", {attributes: {href: "/l/research"}}, [h("h3","تحقیق") , h("h4.topicnum", level1 + " تاپیک")])),
-              h("li.step2", h("a", {attributes: {href: "/l/idea"}}, [h("h3","ایده‌پردازی") , h("h4.topicnum", level2 + " تاپیک")])),
-              h("li.step3", h("a", {attributes: {href: "/l/refinement"}}, [h("h3","تکمیل راه‌کار‌ها") , h("h4.topicnum", level3 + " تاپیک")])),
-              h("li.step4", h("a", {attributes: {href: "/l/impact"}}, [h("h3","تاثیر") , h("h4.topicnum", level4 + " تاپیک")]))
+              h("li.step1", h("a", {attributes: {href: "research"}}, [h("h3","تحقیق") , h("h4.topicnum", level1 + " تاپیک")])),
+              h("li.step2", h("a", {attributes: {href: "idea"}}, [h("h3","ایده‌پردازی") , h("h4.topicnum", level2 + " تاپیک")])),
+              h("li.step3", h("a", {attributes: {href: "refinement"}}, [h("h3","تکمیل راه‌کار‌ها") , h("h4.topicnum", level3 + " تاپیک")])),
+              h("li.step4", h("a", {attributes: {href: "impact"}}, [h("h3","تاثیر") , h("h4.topicnum", level4 + " تاپیک")]))
               ])
             ])
           ]));
