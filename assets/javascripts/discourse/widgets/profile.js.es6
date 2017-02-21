@@ -104,7 +104,15 @@ export default createWidget('nova', {
                         size = size + 1;
 
                 var strsizr = size + "px";
-
+                var url;
+                var color = Discourse.Category.findBySlug(data[i].slug).color;
+                if (Discourse.Category.findBySlug(data[i].slug).uploaded_logo) 
+                {
+                  url = Discourse.Category.findBySlug(data[i].slug).uploaded_logo.url;
+                }
+                else
+                  url = "/uploads/default/original/2X/b/b0f2632cc41f8568abafec7218140e4a46efcbac.png";
+                var link = Discourse.Category.findBySlug(data[i].slug).topic_url;
                 if(unread == 0)
                 {
                   
@@ -115,21 +123,21 @@ export default createWidget('nova', {
                       var seconds_left = (target_date - current_date) / 1000;
                       days = parseInt(seconds_left / 86400);
 
-                      contents.push(h("div." + data[i].slug,[h("a",
-                                                                      {attributes: {href: "c/" + data[i].slug}},
+                      contents.push(h("div." + data[i].slug, {attributes: {style : "background-color: #" + color + ";"}},[h("a",
+                                                                      {attributes: {href: link}},
                                                                       [h("h3",data[i].name),h("img.nova", 
                                                                       {attributes: 
-                                                                       {src: "http://blog.padpors.com/"+ data[i].slug +".png",
+                                                                       {src: url,
                                                                        width: strsizr, height: strsizr
                                                                         }})]),h("h4.daysleft", "پایان: " + days + " روز")]));
                   }
                   else
                   {
-                    contents.push(h("div." + data[i].slug,[h("a",
-                                                                      {attributes: {href: "c/" + data[i].slug}},
+                    contents.push(h("div." + data[i].slug, {attributes: {style : "background-color: #" + color + ";"}},[h("a",
+                                                                      {attributes: {href: link}},
                                                                       [h("h3",data[i].name),h("img.nova", 
                                                                       {attributes: 
-                                                                      {src: "http://blog.padpors.com/"+ data[i].slug +".png",
+                                                                      {src: url,
                                                                        width: strsizr, height: strsizr
                                                                        }})])]));
                   }
@@ -143,21 +151,21 @@ export default createWidget('nova', {
                       var seconds_left = (target_date - current_date) / 1000;
                       days = parseInt(seconds_left / 86400);
 
-                    contents.push(h("div." + data[i].slug,[h("a",
-                                                                      {attributes: {href: "c/" + data[i].slug}},
+                    contents.push(h("div." + data[i].slug, {attributes: {style : "background-color: #" + color + ";"}},[h("a",
+                                                                      {attributes: {href: link}},
                                                                       [h("h3",[data[i].name ,h("sup.badge-notification.new-posts", {attributes:{title: "موضوع تازه"}},unread + " ")]),h("img.nova", 
                                                                     {attributes: 
-                                                                        {src: "http://blog.padpors.com/"+ data[i].slug +".png",
+                                                                        {src: url,
                                                                           width: strsizr, height: strsizr
                                                                              }})]),h("h4.daysleft", "پایان: " + days + " روز")]));
                   }
                   else
                   {
-                    contents.push(h("div." + data[i].slug,[h("a",
-                                                                      {attributes: {href: "c/" + data[i].slug}},
+                    contents.push(h("div." + data[i].slug, {attributes: {style : "background-color: #" + color + ";"}},[h("a",
+                                                                      {attributes: {href: link}},
                                                                       [h("h3",[data[i].name ,h("sup.badge-notification.new-posts", {attributes:{title:"موضوع تازه"}}, unread + " ")]),h("img.nova", 
                                                                         {attributes: 
-                                                                          {src: "http://blog.padpors.com/"+ data[i].slug +".png",
+                                                                          {src: url,
                                                                          width: strsizr, height: strsizr
                                                                            }})])]));
               }
@@ -169,7 +177,9 @@ export default createWidget('nova', {
                 break;
             
         }
-        if (currentUser) 
+        contents.push(h("br"));
+        contents.push(h("form", {attributes: {action: "https://padpors.typeform.com/to/V7s1Hp"}}, h("input.btn.btn-default", {attributes: {type: "submit", value: "نوا بساز"}})));
+        /*if (currentUser) 
         {
             const username = currentUser.get("username");
             contents.push(this.attach("button",{
@@ -187,7 +197,7 @@ export default createWidget('nova', {
               className: 'btn-primary sign-up-button',
               action: "sendShowCreateAccount"
             }));
-      }
+      }*/
     }
     else if (path == "tags.show")
     {
@@ -273,6 +283,51 @@ export default createWidget('nova', {
   showFullTitle: false
 }));
 
+    }
+    else if (cate && topic == undefined && Discourse.SiteSettings[cate.slug] == false)
+    {
+        var level1 = 0, level2 = 0, level3 = 0, level4 = 0;
+
+      for (var i = 0; i < data.length; i++) 
+      {
+        if (data[i].get('parent_category_id') == cate.id) 
+        {
+            if ( data[i].slug == "research" )
+            {
+                level1 = data[i].topic_count;
+            }
+            else if (data[i].slug == "idea") 
+            {
+                level2 = data[i].topic_count;
+            }
+            else if (data[i].slug == "refinement") 
+            {
+                level3 = data[i].topic_count;
+            }
+            else if (data[i].slug == "impact") 
+            {
+                level4 = data[i].topic_count;
+            }
+        }
+      }
+        contents.push(h("div.row", [
+          h("section.col-xlg-4", [
+            h("h2.mb10", ["فرآیند " , h("a.what", {attributes:{href: "t/ابتکار-جمعی-یعنی-چه-و-چه-جوری-کار-میکنه؟/3601"}}, "نوآ")]),
+            h("ul.progress.vertical",[
+              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/research"}}, [h("h3","تحقیق") , h("h4.topicnum", level1 + " تاپیک")])),
+              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/idea"}}, [h("h3","ایده‌پردازی") , h("h4.topicnum", level2 + " تاپیک")])),
+              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/refinement"}}, [h("h3","تکمیل راه‌کار‌ها") , h("h4.topicnum", level3 + " تاپیک")])),
+              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/impact"}}, [h("h3","تاثیر") , h("h4.topicnum", level4 + " تاپیک")]))
+              ])
+            ])
+          ]));
+        contents.push(h("button.PayPingCheckout", {attributes:{onclick:"startt()"}}, "حمایت"));
+        
+        contents.push(this.attach('category-notifications-button', {
+  className: 'btn widget-button',
+  category: category,
+  showFullTitle: false
+}));
     }
 
     
