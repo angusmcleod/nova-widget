@@ -178,7 +178,7 @@ export default createWidget('nova', {
             
         }
         contents.push(h("br"));
-        contents.push(h("form", {attributes: {action: "https://padpors.typeform.com/to/V7s1Hp"}}, h("input.btn.btn-default", {attributes: {type: "submit", value: "نوا بساز"}})));
+        contents.push(h("form", {attributes: {action: "https://padpors.typeform.com/to/V7s1Hp" ,target: "_blank"}}, h("input.btn.btn-default", {attributes: {type: "submit", value: "نوا بساز"}})));
         /*if (currentUser) 
         {
             const username = currentUser.get("username");
