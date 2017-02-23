@@ -112,7 +112,6 @@ export default createWidget('nova', {
                 }
                 else
                   url = "/uploads/default/original/2X/b/b0f2632cc41f8568abafec7218140e4a46efcbac.png";
-                var link = Discourse.Category.findBySlug(data[i].slug).topic_url;
                 if(unread == 0)
                 {
                   
@@ -124,7 +123,7 @@ export default createWidget('nova', {
                       days = parseInt(seconds_left / 86400);
 
                       contents.push(h("div." + data[i].slug, {attributes: {style : "background-color: #" + color + ";"}},[h("a",
-                                                                      {attributes: {href: link}},
+                                                                      {attributes: {href: "/c/" + data[i].slug}},
                                                                       [h("h3",data[i].name),h("img.nova", 
                                                                       {attributes: 
                                                                        {src: url,
@@ -134,7 +133,7 @@ export default createWidget('nova', {
                   else
                   {
                     contents.push(h("div." + data[i].slug, {attributes: {style : "background-color: #" + color + ";"}},[h("a",
-                                                                      {attributes: {href: link}},
+                                                                      {attributes: {href: "/c/" + data[i].slug}},
                                                                       [h("h3",data[i].name),h("img.nova", 
                                                                       {attributes: 
                                                                       {src: url,
@@ -152,7 +151,7 @@ export default createWidget('nova', {
                       days = parseInt(seconds_left / 86400);
 
                     contents.push(h("div." + data[i].slug, {attributes: {style : "background-color: #" + color + ";"}},[h("a",
-                                                                      {attributes: {href: link}},
+                                                                      {attributes: {href: "/c/" + data[i].slug}},
                                                                       [h("h3",[data[i].name ,h("sup.badge-notification.new-posts", {attributes:{title: "موضوع تازه"}},unread + " ")]),h("img.nova", 
                                                                     {attributes: 
                                                                         {src: url,
@@ -162,7 +161,7 @@ export default createWidget('nova', {
                   else
                   {
                     contents.push(h("div." + data[i].slug, {attributes: {style : "background-color: #" + color + ";"}},[h("a",
-                                                                      {attributes: {href: link}},
+                                                                      {attributes: {href: "/c/" + data[i].slug}},
                                                                       [h("h3",[data[i].name ,h("sup.badge-notification.new-posts", {attributes:{title:"موضوع تازه"}}, unread + " ")]),h("img.nova", 
                                                                         {attributes: 
                                                                           {src: url,
