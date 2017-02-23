@@ -177,7 +177,7 @@ export default createWidget('nova', {
             
         }
         contents.push(h("br"));
-        contents.push(h("form", {attributes: {action: "https://padpors.typeform.com/to/V7s1Hp" ,target: "_blank"}}, h("input.btn.btn-default", {attributes: {type: "submit", value: "نوا بساز"}})));
+        contents.push(h("form", {attributes: {action: "https://padpors.typeform.com/to/V7s1Hp" ,target: "_blank"}}, h("input.btn.btn-default.create-nova", {attributes: {type: "submit", value: "+ آغاز گر نوا باش !"}})));
         /*if (currentUser) 
         {
             const username = currentUser.get("username");
@@ -245,19 +245,19 @@ export default createWidget('nova', {
       {
         if (data[i].get('parent_category_id') == cate.id) 
         {
-            if ( data[i].slug == "research" )
+            if ( data[i].slug == "information" )
             {
                 level1 = data[i].topic_count;
             }
-            else if (data[i].slug == "idea") 
+            else if (data[i].slug == "problem") 
             {
                 level2 = data[i].topic_count;
             }
-            else if (data[i].slug == "refinement") 
+            else if (data[i].slug == "idea") 
             {
                 level3 = data[i].topic_count;
             }
-            else if (data[i].slug == "impact") 
+            else if (data[i].slug == "solution") 
             {
                 level4 = data[i].topic_count;
             }
@@ -267,10 +267,10 @@ export default createWidget('nova', {
           h("section.col-xlg-4", [
             h("h2.mb10", ["فرآیند " , h("a.what", {attributes:{href: "t/ابتکار-جمعی-یعنی-چه-و-چه-جوری-کار-میکنه؟/3601"}}, "نوآ")]),
             h("ul.progress.vertical",[
-              h("li.step1", h("a", {attributes: {href: "/c/" + cate.slug + "/research"}}, [h("h3","تحقیق") , h("h4.topicnum", level1 + " تاپیک")])),
-              h("li.step2", h("a", {attributes: {href: "/c/" + cate.slug + "/idea"}}, [h("h3","ایده‌پردازی") , h("h4.topicnum", level2 + " تاپیک")])),
-              h("li.step3", h("a", {attributes: {href: "/c/" + cate.slug + "/refinement"}}, [h("h3","تکمیل راه‌کار‌ها") , h("h4.topicnum", level3 + " تاپیک")])),
-              h("li.step4", h("a", {attributes: {href: "/c/" + cate.slug + "/impact"}}, [h("h3","تاثیر") , h("h4.topicnum", level4 + " تاپیک")]))
+              h("li.step1", h("a", {attributes: {href: "/c/" + cate.slug + "/information"}}, [h("h3","تحقیق") , h("h4.topicnum", level1 + " تاپیک")])),
+              h("li.step2", h("a", {attributes: {href: "/c/" + cate.slug + "/problem"}}, [h("h3","انتخاب مشکل") , h("h4.topicnum", level2 + " تاپیک")])),
+              h("li.step3", h("a", {attributes: {href: "/c/" + cate.slug + "/idea"}}, [h("h3","ایده پردازی") , h("h4.topicnum", level3 + " تاپیک")])),
+              h("li.step4", h("a", {attributes: {href: "/c/" + cate.slug + "/solution"}}, [h("h3","تکمیل راهکار") , h("h4.topicnum", level4 + " تاپیک")]))
               ])
             ])
           ]));
@@ -291,19 +291,19 @@ export default createWidget('nova', {
       {
         if (data[i].get('parent_category_id') == cate.id) 
         {
-            if ( data[i].slug == "research" )
+            if ( data[i].slug == "information" )
             {
                 level1 = data[i].topic_count;
             }
-            else if (data[i].slug == "idea") 
+            else if (data[i].slug == "problem") 
             {
                 level2 = data[i].topic_count;
             }
-            else if (data[i].slug == "refinement") 
+            else if (data[i].slug == "idea") 
             {
                 level3 = data[i].topic_count;
             }
-            else if (data[i].slug == "impact") 
+            else if (data[i].slug == "solution") 
             {
                 level4 = data[i].topic_count;
             }
@@ -313,10 +313,10 @@ export default createWidget('nova', {
           h("section.col-xlg-4", [
             h("h2.mb10", ["فرآیند " , h("a.what", {attributes:{href: "t/ابتکار-جمعی-یعنی-چه-و-چه-جوری-کار-میکنه؟/3601"}}, "نوآ")]),
             h("ul.progress.vertical",[
-              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/research"}}, [h("h3","تحقیق") , h("h4.topicnum", level1 + " تاپیک")])),
-              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/idea"}}, [h("h3","ایده‌پردازی") , h("h4.topicnum", level2 + " تاپیک")])),
-              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/refinement"}}, [h("h3","تکمیل راه‌کار‌ها") , h("h4.topicnum", level3 + " تاپیک")])),
-              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/impact"}}, [h("h3","تاثیر") , h("h4.topicnum", level4 + " تاپیک")]))
+              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/information"}}, [h("h3","تحقیق") , h("h4.topicnum", level1 + " تاپیک")])),
+              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/problem"}}, [h("h3","انتخاب مشکل") , h("h4.topicnum", level2 + " تاپیک")])),
+              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/idea"}}, [h("h3","ایده پردازی") , h("h4.topicnum", level3 + " تاپیک")])),
+              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/solution"}}, [h("h3","تکمیل راهکار") , h("h4.topicnum", level4 + " تاپیک")]))
               ])
             ])
           ]));
