@@ -128,7 +128,7 @@ export default createWidget('nova', {
                                                                       {attributes: 
                                                                        {src: url,
                                                                        width: strsizr, height: strsizr
-                                                                        }})]),h("h4.daysleft", "پایان: " + days + " روز")]));
+                                                                        }})]),h("h4.daysleft", "شروع: " + days + " روز")]));
                   }
                   else
                   {
@@ -156,7 +156,7 @@ export default createWidget('nova', {
                                                                     {attributes: 
                                                                         {src: url,
                                                                           width: strsizr, height: strsizr
-                                                                             }})]),h("h4.daysleft", "پایان: " + days + " روز")]));
+                                                                             }})]),h("h4.daysleft", "شروع: " + days + " روز")]));
                   }
                   else
                   {
