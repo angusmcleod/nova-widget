@@ -177,7 +177,7 @@ export default createWidget('nova', {
             
         }
         contents.push(h("br"));
-        contents.push(h("form", {attributes: {action: "https://padpors.typeform.com/to/V7s1Hp" ,target: "_blank"}}, h("input.btn.btn-default.create-nova", {attributes: {type: "submit", value: "+ آغازگر نوآ باش!"}})));
+        contents.push(h("form", {attributes: {action: "http://www.eventbox.ir/forms/show/508" ,target: "_blank"}}, h("input.btn.btn-default.create-nova", {attributes: {type: "submit", value: "+ آغازگر نوآ باش!"}})));
         /*if (currentUser) 
         {
             const username = currentUser.get("username");
