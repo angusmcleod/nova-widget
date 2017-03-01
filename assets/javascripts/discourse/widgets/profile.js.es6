@@ -74,7 +74,7 @@ export default createWidget('nova', {
     var data = Discourse.Category.list();
     if (path == "discovery.latest" || path == "discovery.top")
     {
-        contents.push(h("h2.novatitle", [h("a.what", {attributes:{href: "t/ابتکار-جمعی-یعنی-چه-و-چه-جوری-کار-میکنه؟/3601"}}, " نوآ"), " های اخیر"]));
+        contents.push(h("h2.novatitle", ["اتاق‌های",h("a.what", {attributes:{href: "t/ابتکار-جمعی-یعنی-چه-و-چه-جوری-کار-میکنه؟/3601"}}, " نوآ"), "وری"]));
          for (var i = 0 ; i < data.length ; i++) 
         {
             count = data[i].topic_count;
