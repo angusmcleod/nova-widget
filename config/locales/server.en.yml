@@ -8,3 +8,6 @@ fa_IR:
     nova-pollution-date: "this nova's date i.e: Mar 12, 2017"
     nova-reading-date: "this nova's date i.e: Mar 12, 2017"
     nova-reading: "status of nova-004"
+    nova-before-link: "sentence before link"
+    nova-link: "sentence link"
+    nova-after-link: "sentence before link"
