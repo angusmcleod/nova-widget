@@ -13,4 +13,5 @@ fa_IR:
     nova-after-link: "sentence before link"
     nova-foodwaste-link: "link of foodwaste"
     nova-experiences-link: "link of XP"
-    nova-pollution-link: "status of polluation"
+    nova-pollution-link: "link of polluation"
+    nova-reading-link: "link of reading"
