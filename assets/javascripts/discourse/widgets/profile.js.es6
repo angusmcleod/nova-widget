@@ -72,9 +72,9 @@ export default createWidget('nova', {
     var v1 = 0, size = 0;
     var unread = 0;
     var data = Discourse.Category.list();
-    if (path == "discovery.latest" || path == "discovery.top")
+    if (path == "discovery.latest")
     {
-        contents.push(h("h2.novatitle", ["اتاق‌های",h("a.what", {attributes:{href: "t/ابتکار-جمعی-یعنی-چه-و-چه-جوری-کار-میکنه؟/3601"}}, " نوآ"), "وری"]));
+        contents.push(h("h2.novatitle", [Discourse.SiteSettings['nova-before-link'] + " ",h("a.what", {attributes:{href: "t/ابتکار-جمعی-یعنی-چه-و-چه-جوری-کار-میکنه؟/3601"}}, Discourse.SiteSettings['nova-link']),Discourse.SiteSettings['nova-after-link']]));
          for (var i = 0 ; i < data.length ; i++) 
         {
             count = data[i].topic_count;
@@ -169,7 +169,7 @@ export default createWidget('nova', {
                                                                            }})])]));
               }
                 }
-                //contents.push(h("button.PayPingCheckout", {attributes:{onclick:"startt()"}}, "حمایت"));
+                
 
             }
             if (v1 == 5)
@@ -178,160 +178,7 @@ export default createWidget('nova', {
         }
         contents.push(h("br"));
         contents.push(h("form", {attributes: {action: "http://www.eventbox.ir/forms/show/508?utm_source=create%20nova-main%20page&utm_campaign=create%20nova-main%20page&utm_medium=create%20nova-main%20page&utm_term=create%20nova-main%20page&utm_content=create%20nova-main%20page" ,target: "_blank"}}, h("input.btn.btn-default.create-nova", {attributes: {type: "submit", value: "+ آغازگر نوآ باش!"}})));
-        /*if (currentUser) 
-        {
-            const username = currentUser.get("username");
-            contents.push(this.attach("button",{
-              className: "btn btn-default",
-              label:"topic.create" ,
-              icon: "plus",
-              action: "createTopic"
-        
-            }));
-        }
-      else
-      {
-        contents.push(this.attach('button', {
-              label: "sign_up",
-              className: 'btn-primary sign-up-button',
-              action: "sendShowCreateAccount"
-            }));
-      }*/
     }
-    else if (path == "tags.show")
-    {
-        /*$.ajax({
-          url: "/tags",
-          dataType: 'json',
-          async: false,
-          success: function(data) {
-            console.log(data);
-          }
-      });*/
-      //var data = Discourse.Category.listByActivity();
-      //console.log(data);
-    }
-    /*if (topic) 
-    {
-
-        if (currentUser) 
-        {
-            const username = currentUser.get("username");
-            contents.push(
-            avatarImg('large', {
-            template: currentUser.get('avatar_template'),
-            username: username
-            }),h("hr"));
-            contents.push(this.attach('topic-notifications-button', {
-            topic: topic,
-            appendReason: false,
-            showFullTitle: true
-          }));
-        }
-        else
-        {
-            contents.push(this.attach('button', {
-              label: "sign_up",
-              className: 'btn-primary sign-up-button',
-              action: "sendShowCreateAccount"
-            }));
-        }
-    }*/
-    if (cate && topic == undefined && Discourse.SiteSettings[cate.slug]) 
-    {
-      var level1 = 0, level2 = 0, level3 = 0, level4 = 0;
-
-      for (var i = 0; i < data.length; i++) 
-      {
-        if (data[i].get('parent_category_id') == cate.id) 
-        {
-            if ( data[i].slug == "information" )
-            {
-                level1 = data[i].topic_count;
-            }
-            else if (data[i].slug == "problem") 
-            {
-                level2 = data[i].topic_count;
-            }
-            else if (data[i].slug == "idea") 
-            {
-                level3 = data[i].topic_count;
-            }
-            else if (data[i].slug == "solution") 
-            {
-                level4 = data[i].topic_count;
-            }
-        }
-      }
-        contents.push(h("div.row", [
-          h("section.col-xlg-4", [
-            h("h2.mb10", ["فرآیند " , h("a.what", {attributes:{href: "t/ابتکار-جمعی-یعنی-چه-و-چه-جوری-کار-میکنه؟/3601"}}, "نوآ")]),
-            h("ul.progress.vertical",[
-              h("li.step1", h("a", {attributes: {href: "/c/" + cate.slug + "/information"}}, [h("h3","تحقیق") , h("h4.topicnum", level1 + " تاپیک")])),
-              h("li.step2", h("a", {attributes: {href: "/c/" + cate.slug + "/problem"}}, [h("h3","انتخاب مشکل") , h("h4.topicnum", level2 + " تاپیک")])),
-              h("li.step3", h("a", {attributes: {href: "/c/" + cate.slug + "/idea"}}, [h("h3","ایده پردازی") , h("h4.topicnum", level3 + " تاپیک")])),
-              h("li.step4", h("a", {attributes: {href: "/c/" + cate.slug + "/solution"}}, [h("h3","تکمیل راهکار") , h("h4.topicnum", level4 + " تاپیک")]))
-              ])
-            ])
-          ]));
-        contents.push(h("button.PayPingCheckout", {attributes:{onclick:"startt()"}}, "حمایت"));
-        
-        contents.push(this.attach('category-notifications-button', {
-  className: 'btn widget-button',
-  category: category,
-  showFullTitle: false
-}));
-
-    }
-    else if (cate && topic == undefined && Discourse.SiteSettings[cate.slug] == false)
-    {
-        var level1 = 0, level2 = 0, level3 = 0, level4 = 0;
-
-      for (var i = 0; i < data.length; i++) 
-      {
-        if (data[i].get('parent_category_id') == cate.id) 
-        {
-            if ( data[i].slug == "information" )
-            {
-                level1 = data[i].topic_count;
-            }
-            else if (data[i].slug == "problem") 
-            {
-                level2 = data[i].topic_count;
-            }
-            else if (data[i].slug == "idea") 
-            {
-                level3 = data[i].topic_count;
-            }
-            else if (data[i].slug == "solution") 
-            {
-                level4 = data[i].topic_count;
-            }
-        }
-      }
-        contents.push(h("div.row", [
-          h("section.col-xlg-4", [
-            h("h2.mb10", ["فرآیند " , h("a.what", {attributes:{href: "t/ابتکار-جمعی-یعنی-چه-و-چه-جوری-کار-میکنه؟/3601"}}, "نوآ")]),
-            h("ul.progress.vertical",[
-              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/information"}}, [h("h3","تحقیق") , h("h4.topicnum", level1 + " تاپیک")])),
-              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/problem"}}, [h("h3","انتخاب مشکل") , h("h4.topicnum", level2 + " تاپیک")])),
-              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/idea"}}, [h("h3","ایده پردازی") , h("h4.topicnum", level3 + " تاپیک")])),
-              h("li.done", h("a", {attributes: {href: "/c/" + cate.slug + "/solution"}}, [h("h3","تکمیل راهکار") , h("h4.topicnum", level4 + " تاپیک")]))
-              ])
-            ])
-          ]));
-        contents.push(h("button.PayPingCheckout", {attributes:{onclick:"startt()"}}, "حمایت"));
-        
-        contents.push(this.attach('category-notifications-button', {
-  className: 'btn widget-button',
-  category: category,
-  showFullTitle: false
-}));
-    }
-
-    
-
-
     return h('div.widget-inner', contents);
   }
 
