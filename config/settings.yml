@@ -41,3 +41,6 @@ plugins:
   nova-pollution-link:
     client: true
     default: "/"
+  nova-reading-link:
+    client: true
+    default: "/"
