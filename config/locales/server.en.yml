@@ -11,3 +11,6 @@ fa_IR:
     nova-before-link: "sentence before link"
     nova-link: "sentence link"
     nova-after-link: "sentence before link"
+    nova-foodwaste-link: "link of foodwaste"
+    nova-experiences-link: "link of XP"
+    nova-pollution-link: "status of polluation"
