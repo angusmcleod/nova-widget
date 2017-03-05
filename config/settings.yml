@@ -23,3 +23,12 @@ plugins:
   nova-reading-date:
     client: true
     default: "Mar 12, 2017"
+  nova-before-link:
+    client: true
+    default: "اتاق های"
+  nova-link:
+    client: true
+    default: "نوآ"
+  nova-after-link:
+    client: true
+    default: "وری"
