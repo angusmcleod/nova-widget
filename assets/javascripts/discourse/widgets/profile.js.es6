@@ -123,7 +123,7 @@ export default createWidget('nova', {
                       days = parseInt(seconds_left / 86400);
 
                       contents.push(h("div." + data[i].slug, {attributes: {style : "background-color: #" + color + ";"}},[h("a",
-                                                                      {attributes: {href: "/c/" + data[i].slug}},
+                                                                      {attributes: {href: "/c/" + data[i].slug + Discourse.SiteSettings[data[i].slug + "-link"]}},
                                                                       [h("h3",data[i].name),h("img.nova", 
                                                                       {attributes: 
                                                                        {src: url,
@@ -151,7 +151,7 @@ export default createWidget('nova', {
                       days = parseInt(seconds_left / 86400);
 
                     contents.push(h("div." + data[i].slug, {attributes: {style : "background-color: #" + color + ";"}},[h("a",
-                                                                      {attributes: {href: "/c/" + data[i].slug}},
+                                                                      {attributes: {href: "/c/" + data[i].slug +  Discourse.SiteSettings[data[i].slug + "-link"]}},
                                                                       [h("h3",[data[i].name ,h("sup.badge-notification.new-posts", {attributes:{title: "موضوع تازه"}},unread + " ")]),h("img.nova", 
                                                                     {attributes: 
                                                                         {src: url,
