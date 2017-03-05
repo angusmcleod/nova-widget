@@ -32,3 +32,12 @@ plugins:
   nova-after-link:
     client: true
     default: "وری"
+  nova-foodwaste-link:
+    client: true
+    default: "/"
+  nova-experiences-link:
+    client: true
+    default: "/"
+  nova-pollution-link:
+    client: true
+    default: "/"
